@@ -1,0 +1,34 @@
+<div class="grid justify-content-center my-5">
+  <div class="col-12 md:col-3">
+    <button pButton label="Generate Random Number" class="p-button-raised" (click)="generateNumber()"></button>
+  </div>
+</div>
+
+<div class="grid w-100 p-5" *ngIf="dataSource">
+  <div class="col-12">
+    <p-table [value]="dataSource.results">
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let col of cols">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-data>
+        <tr>
+          <td *ngFor="let col of cols">
+            <span *ngIf="col.type == 'string'">
+              {{data[col.field]}}
+            </span>
+            <span *ngIf="col.type == 'number'">
+              {{ data[col.field] | number }}
+            </span>
+            <span *ngIf="col.type == 'date'">
+              {{ data[col.field] | date: 'medium' }}
+            </span>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
