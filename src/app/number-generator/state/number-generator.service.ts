@@ -19,6 +19,6 @@ export class NumberGeneratorService {
   }
 
   getRandomNumbersList() {
-    return this.baseService.get<Model.NumberList>(`${this.randomIntegerUrl}/`);
+    return this.baseService.get<Model.NumberList>(`${this.randomIntegerUrl}/?limit=20`);
   }
 }

@@ -6,7 +6,7 @@
 
 <div class="grid w-100 p-5" *ngIf="dataSource">
   <div class="col-12">
-    <p-table [value]="dataSource.results">
+    <p-table [value]="dataSource.results" [paginator]="true" [rows]="10">
       <ng-template pTemplate="header">
         <tr>
           <th *ngFor="let col of cols">
@@ -32,3 +32,15 @@
     </p-table>
   </div>
 </div>
+
+<div class="grid w-100 p-5" *ngIf="dataSource">
+  <div class="col-12">
+    <p-chart type="line" [data]="chartData" [options]="basicOptions"></p-chart>
+  </div>
+</div>
+
+<p-dialog header="Generated Number" [(visible)]="generatedNumber" [style]="{width: '30vw'}" (onHide)="resetNumber()">
+  <div class="text-primary text-2xl text-center font-bold">
+    {{ generatedNumber }}
+  </div>
+</p-dialog>

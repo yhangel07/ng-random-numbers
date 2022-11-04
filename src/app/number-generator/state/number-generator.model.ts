@@ -1,6 +1,6 @@
 export interface GeneratedNumber {
-  value: BigInteger;
-  generated_user?: string;
+  value: number;
+  generator_user?: string;
   created?: Date;
   updated?: Date;
 }
