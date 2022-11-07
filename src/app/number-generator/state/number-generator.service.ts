@@ -18,7 +18,7 @@ export class NumberGeneratorService {
     return this.baseService.get<Model.GeneratedNumber>(`${this.randomIntegerUrl}/generate/`);
   }
 
-  getRandomNumbersList() {
-    return this.baseService.get<Model.NumberList>(`${this.randomIntegerUrl}/?limit=20`);
+  getRandomNumbersList(limit = 0, offset = 0) {
+    return this.baseService.get<Model.NumberList>(`${this.randomIntegerUrl}/?limit=${limit}&offset=${offset}`);
   }
 }

@@ -4,9 +4,9 @@
   </div>
 </div>
 
-<div class="grid w-100 p-5" *ngIf="dataSource">
+<div class="grid w-100 p-5">
   <div class="col-12">
-    <p-table [value]="dataSource.results" [paginator]="true" [rows]="10">
+    <p-table [lazy]="true" (onLazyLoad)="nextPage($event)" [paginator]="true" [rows]="10" [totalRecords]="totalRecords" [loading]="loading" [value]="tableData">
       <ng-template pTemplate="header">
         <tr>
           <th *ngFor="let col of cols">
